@@ -1,0 +1,184 @@
+body,
+p,
+ul {
+  margin: initial;
+  padding: initial;
+}
+
+li {
+  list-style-type: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: initial;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+img {
+  /* 자신의 부모 크기가 기준. 그것보다는 더 커지지 못하게. */
+  max-width: 100%;
+  height: auto;
+  vertical-align: top;
+}
+
+:root {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}
+
+.l_wrapper {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1080px) {
+  .title {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .title p::before {
+    /* display: none; */
+  }
+
+  .title-headings {
+    font-size: ;
+  }
+}
+
+.section {
+  padding: 100px 40px;
+}
+
+.section_purple {
+  background-color: #673399;
+  color: white;
+}
+
+.section_pink {
+  background-color: seashell;
+  color: salmon;
+}
+
+.section-header {
+  box-shadow: inset 0 0 10px cyan;
+  margin-bottom: 100px;
+}
+
+.section-contents {
+  box-shadow: inset 0 0 10px deeppink;
+}
+
+.title {
+  box-shadow: inset 0 0 10px yellow;
+  display: flex;
+  align-items: center;
+}
+
+.title-headings {
+  box-shadow: inset 0 0 10px darkorange;
+  flex-basis: 26%;
+  flex-shrink: 0;
+  font-size: 40px;
+}
+
+.title-headings strong {
+  box-shadow: inset 0 -20px 0 orangered;
+}
+
+.title p {
+  box-shadow: inset 0 0 10px darkorange;
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+}
+
+.title p::before {
+  content: " ";
+  width: 60px;
+  height: 2px;
+  flex-shrink: 0;
+  background-color: currentColor;
+  margin-right: 20px;
+}
+
+.card {
+  background-color: white;
+  color: #222;
+  margin-bottom: 24px;
+  display: flex;
+  /* 컨텐츠 양이랑 무관하게 높이 값을 넣어줌. img에 대해 */
+  min-height: 200px;
+}
+
+.card:last-child {
+  margin-bottom: 0;
+}
+
+.card:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.card-cover {
+  box-shadow: inset 0 0 10px darkorange;
+  flex-basis: 26%;
+  flex-shrink: 0;
+  /* card-contents에 대하여 새로운 컨테이닝 블럭으로 만들어줬다~ */
+  position: relative;
+}
+
+.card-cover img {
+  width: 100%;
+  height: 100%;
+  /* 마치 백그라운드 이미지 처럼 마크업 이미지를 펼치는.. */
+  object-fit: cover;
+}
+
+.card-cover h2 {
+  position: absolute;
+  background-color: rgb(0 0 0 / 0.4);
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 30px;
+}
+
+.card-contents {
+  box-shadow: inset 0 0 20px dodgerblue;
+  flex-basis: 0;
+  /* grow1을 넣어서 커버 이외의 나머지를 가득 채웠어. 컨텐츠가 너무 많아지면 엉망이 되니까 안정적으로 해주기 위해 min-width:0 을 넣었어. */
+  flex-grow: 1;
+  min-width: 0;
+  padding: 30px;
+}
+
+.lists {
+  box-shadow: inset 0 0 20px dodgerblue;
+}
+
+.lists li {
+  text-indent: -20px;
+  padding-left: 20px;
+}
+
+.lists li + li {
+  margin-top: 6px;
+}
+
+.lists li::before {
+  content: " ";
+  background-color: orange;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  border-radius: 50%;
+  margin-right: 10px;
+}
