@@ -67,27 +67,23 @@ button {
 
 /* ---------- layout(events) ---------- */
 
-.section-events .container-header {
-  box-shadow: inset 0 0 10px rgb(110, 213, 198);
+.section-events header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 100px;
 }
-.section-events h2 {
-  color: blue;
-  box-shadow: inset 0 0 10px black;
-}
-.header-btn {
-  box-shadow: inset 0 0 10px rgb(143, 143, 143);
-}
 .section-events .wrapper {
-  box-shadow: inset 0 0 10px rgb(255, 139, 139);
 }
 .section-events .bottom-wrapper {
-  box-shadow: inset 0 0 10px rgb(184, 249, 63);
   display: flex;
   gap: 24px;
+}
+
+.card-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* ---------- Style(events) ---------- */
@@ -100,28 +96,118 @@ button {
   max-width: 1080px;
   margin: 0 auto;
 }
+
 .section-events .header-title {
   flex-basis: calc((100% - 48px) / 3);
+  color: salmon;
 }
+
+.section-events .header-title strong {
+  font-weight: inherit;
+  box-shadow: inset 0 -20px white;
+}
+
+.header-btn {
+  font-size: 14px;
+  color: white;
+  background-color: orangered;
+  padding: 13px 17px;
+  border-radius: 5px;
+  box-shadow: 0 3px 0 0 rgba(186, 56, 9, 1);
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.header-btn:hover {
+  filter: brightness(80%);
+}
+
 .evt-container-card {
   background-color: white;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 344px;
+  /* min-width주니까 3개가 컨테이너 튀어나가는게 해결됨 */
+  min-width: 0;
+  box-shadow: 2px 2px 7px 0 rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease;
 }
-.evt-container-card .card-img {
-  width: 100%;
-  height: 100%;
+.evt-container-card:hover {
+  filter: brightness(80%);
+  box-shadow: 6px 6px 6px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.evt-container-card .thumbnail-img {
+  max-width: 100%;
+  max-height: 100%;
   object-fit: cover;
+  border-bottom: 4px solid black;
+  position: relative;
 }
+
+.evt-container-card .thumbnail-badge {
+  position: absolute;
+  margin-top: -9px;
+  margin-left: -9px;
+  /* transform: translate(-9px, -9px); */
+}
+
 .evt-container-card .card-contents {
-  padding: 24px 24px 19px;
+  padding: 24px 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .card-tag span {
   color: #673399;
   background-color: #f1e0f8;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 3px;
+  padding: 2px 7px;
 }
+
 .card-tag span + span {
   margin-left: 5px;
 }
+
+.card-contents .card-title {
+  font-size: 24px;
+  margin: 24px 0 32px;
+}
+
+.card-contents .card-dsc {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgb(69, 69, 69);
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+
+.card-detail {
+  border-top: 4px solid #eeeeee;
+  margin-left: 24px;
+  height: 68px;
+  position: relative;
+}
+
+.card-detail .detail-text {
+  font-size: 12px;
+}
+
+.card-detail .detail-people {
+  position: absolute;
+  right: 24px;
+}
+
+.detail-people .detail-img {
+  width: 30px;
+  border-radius: 20px;
+  margin-left: -15px;
+  outline: 3px solid white;
+}
+
 /* ---------- Style(project) ---------- */
 .header-title {
   color: white;
@@ -155,11 +241,15 @@ button {
 }
 
 .container-card {
-  /* display: flex; */
+  display: flex;
   background-color: white;
+  transition: 0.3s ease;
 }
-.bottom-wrapper {
-}
+
+/* .container-card:hover {
+  filter: brightness(80%);
+  box-shadow: 6px 6px 6px #673399;
+} */
 
 /* 2번째 녀석 이후로 탑에 마진 주는 */
 .container-card + .container-card {
@@ -211,6 +301,8 @@ button {
 
 /* 또 다른 방법.contents-lists li + li {margin-top: 6px;} */
 .contents-lists li {
+  font-weight: 500;
+  color: rgb(69, 69, 69);
   line-height: 200%;
   position: relative;
   padding-left: 20px;
@@ -228,18 +320,31 @@ button {
 }
 
 @media (max-width: 768px) {
-  .section-project header {
-    margin-bottom: 70px;
+  .section-events,
+  .section-project {
+    padding: 80px 24px 100px;
   }
 
-  .container-header {
+  .section-project header,
+  .section-events header {
+    margin-bottom: 80px;
+  }
+
+  .container-header,
+  .section-events .container-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 15px;
+    gap: 20px;
   }
 
+  .section-events .header-title {
+    max-width: 300px;
+  }
   .header-title {
-    width: 300px;
+    max-width: 300px;
+  }
+  .section-events .bottom-wrapper {
+    flex-direction: column;
   }
 
   .header-dsc::before {
