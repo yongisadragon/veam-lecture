@@ -66,7 +66,6 @@ button {
 }
 
 /* ---------- layout(events) ---------- */
-
 .section-events header {
   display: flex;
   justify-content: space-between;
@@ -175,14 +174,21 @@ button {
 .card-contents .card-title {
   font-size: 24px;
   margin: 24px 0 32px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
-
 .card-contents .card-dsc {
   font-size: 14px;
   font-weight: 500;
   color: rgb(69, 69, 69);
   flex-grow: 1;
   flex-shrink: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .card-detail {
@@ -342,12 +348,10 @@ button {
     gap: 24px;
   }
 
-  .section-events .header-title {
-    max-width: 300px;
-  }
   .header-title {
-    max-width: 300px;
+    max-width: 350px;
   }
+
   .section-events .bottom-wrapper {
     flex-direction: column;
   }
