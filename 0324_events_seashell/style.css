@@ -1,5 +1,4 @@
 /* ---------- reset ---------- */
-
 * {
   margin: 0;
   padding: 0;
@@ -23,6 +22,7 @@ h3,
 h4,
 li,
 p,
+span,
 button {
   font-family: "Montserrat", sans-serif;
 }
@@ -38,31 +38,6 @@ img {
 button {
   background: none;
   border: none;
-}
-/* ---------- media ---------- */
-/* @media (max-width: 768px) {
-      }
-      @media (min-width: 769px) {
-      } */
-
-/* ---------- layout(project) ---------- */
-.section-project {
-  padding: 100px 24px;
-  background-color: #673399;
-}
-
-.section-project header {
-  margin-bottom: 100px;
-}
-
-.section-project .wrapper {
-  max-width: 1080px;
-  margin: 0 auto;
-}
-
-.container-header {
-  display: flex;
-  align-items: center;
 }
 
 /* ---------- layout(events) ---------- */
@@ -111,11 +86,12 @@ button {
   color: white;
   background-color: orangered;
   padding: 13px 17px;
-  border-radius: 5px;
+  border-radius: 7px;
   box-shadow: 0 3px 0 0 rgba(186, 56, 9, 1);
   cursor: pointer;
   transition: 0.3s ease;
 }
+
 .header-btn:hover {
   filter: brightness(80%);
 }
@@ -125,11 +101,10 @@ button {
   display: flex;
   flex-direction: column;
   flex-basis: 344px;
-  /* min-width주니까 3개가 컨테이너 튀어나가는게 해결됨 */
-  min-width: 0;
   box-shadow: 2px 2px 7px 0 rgba(0, 0, 0, 0.1);
   transition: 0.3s ease;
 }
+
 .evt-container-card:hover {
   filter: brightness(80%);
   box-shadow: 6px 6px 6px 0 rgba(0, 0, 0, 0.2);
@@ -137,8 +112,7 @@ button {
 }
 
 .evt-container-card .thumbnail-img {
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
   object-fit: cover;
   border-bottom: 4px solid black;
   position: relative;
@@ -164,7 +138,7 @@ button {
   font-size: 12px;
   font-weight: 600;
   border-radius: 3px;
-  padding: 2px 7px;
+  padding: 2px 7px 4px;
 }
 
 .card-tag span + span {
@@ -182,6 +156,7 @@ button {
 .card-contents .card-dsc {
   font-size: 14px;
   font-weight: 500;
+  line-height: 120%;
   color: rgb(69, 69, 69);
   flex-grow: 1;
   flex-shrink: 0;
@@ -204,7 +179,9 @@ button {
 
 .card-detail .detail-people {
   position: absolute;
+  top: 50%;
   right: 24px;
+  transform: translate(0, -50%);
 }
 
 .detail-people .detail-img {
@@ -212,6 +189,26 @@ button {
   border-radius: 20px;
   margin-left: -15px;
   outline: 3px solid white;
+}
+
+/* ---------- layout(project) ---------- */
+.section-project {
+  padding: 100px 24px;
+  background-color: #673399;
+}
+
+.section-project header {
+  margin-bottom: 100px;
+}
+
+.section-project .wrapper {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.container-header {
+  display: flex;
+  align-items: center;
 }
 
 /* ---------- Style(project) ---------- */
@@ -326,11 +323,19 @@ button {
   border-radius: 20px;
   background-color: #bd8fe8;
   top: 0.25em;
-  /* li패딩 20px 준것의 왼쪽에 딱붙게, left값이 '있어야'함, 없으면 absolute상태에서 left위치 지정이 안된걸로 처리됨*/
+  /* li패딩 20px 준것의 왼쪽에 딱붙게, left값이 있어야함, 없으면 absolute상태에서 left위치 지정이 안된걸로 처리됨*/
   left: 0;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 822px) and (max-width: 1145px) {
+  .evt-container-card:nth-child(3) .card-title {
+    margin-bottom: 60.95px;
+  }
+}
+
+@media (max-width: 780px) {
+  /* ---------- Common ---------- */
+
   .section-events,
   .section-project {
     padding: 80px 24px 100px;
@@ -352,16 +357,32 @@ button {
     max-width: 350px;
   }
 
+  /* ---------- events ---------- */
   .section-events .bottom-wrapper {
     flex-direction: column;
   }
 
-  .header-dsc::before {
+  .evt-container-card .card-dsc {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* ---------- project ---------- */
+  .section-project .header-dsc::before {
     display: none;
   }
 
   .container-card,
   .container-card:nth-child(even) {
     flex-direction: column;
+  }
+
+  .contents-lists li {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 }
